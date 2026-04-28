@@ -421,6 +421,92 @@
             transform: translateY(-3px);
         }
 
+        .btn-download {
+            background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+            color: white;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-download::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-download:hover::before { left: 100%; }
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.6);
+        }
+
+        .btn-download i {
+            animation: bounceDown 2s ease-in-out infinite;
+        }
+
+        @keyframes bounceDown {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(3px); }
+        }
+
+        /* Floating Resume Button */
+        .floating-resume {
+            position: fixed;
+            right: 25px;
+            bottom: 25px;
+            z-index: 999;
+            background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+            color: white;
+            padding: 0.9rem 1.4rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            animation: pulseFloat 3s ease-in-out infinite;
+        }
+
+        .floating-resume:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.7);
+        }
+
+        .floating-resume i {
+            font-size: 1.1rem;
+        }
+
+        @keyframes pulseFloat {
+            0%, 100% { box-shadow: 0 10px 30px rgba(16, 185, 129, 0.5); }
+            50% { box-shadow: 0 10px 40px rgba(16, 185, 129, 0.8), 0 0 0 10px rgba(16, 185, 129, 0.1); }
+        }
+
+        @media (max-width: 600px) {
+            .floating-resume {
+                right: 15px;
+                bottom: 15px;
+                padding: 0.8rem 1rem;
+                font-size: 0.85rem;
+            }
+            .floating-resume span { display: none; }
+            .floating-resume {
+                width: 55px;
+                height: 55px;
+                padding: 0;
+                justify-content: center;
+                border-radius: 50%;
+            }
+            .floating-resume i { font-size: 1.3rem; }
+        }
+
         /* Hero Visual */
         .hero-visual {
             position: relative;
@@ -1402,8 +1488,15 @@
             <li><a href="#projects"><i class="fas fa-rocket"></i> Projects</a></li>
             <li><a href="#ai-tools"><i class="fas fa-robot"></i> AI Tools</a></li>
             <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            <li><a href="Satham_Hussain_Resume.pdf" download style="background: linear-gradient(135deg, #10b981, #06b6d4); color: white;"><i class="fas fa-download"></i> Resume</a></li>
         </ul>
     </nav>
+
+    <!-- Floating Resume Download Button -->
+    <a href="Satham_Hussain_Resume.pdf" download="Satham_Hussain_Resume.pdf" class="floating-resume" title="Download Resume">
+        <i class="fas fa-file-download"></i>
+        <span>Download CV</span>
+    </a>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -1439,6 +1532,9 @@
                 <div class="cta-buttons">
                     <a href="#contact" class="btn btn-primary">
                         <i class="fas fa-paper-plane"></i> Let's Talk
+                    </a>
+                    <a href="Satham_Hussain_Resume.pdf" download="Satham_Hussain_Resume.pdf" class="btn btn-download">
+                        <i class="fas fa-download"></i> Download CV
                     </a>
                     <a href="#projects" class="btn btn-secondary">
                         <i class="fas fa-folder-open"></i> View Work
@@ -2076,6 +2172,10 @@
                         <div class="value">Team Lead · In22Labs</div>
                     </div>
                 </div>
+
+                <a href="Satham_Hussain_Resume.pdf" download="Satham_Hussain_Resume.pdf" class="btn btn-download" style="width: 100%; justify-content: center; margin-top: 1.5rem;">
+                    <i class="fas fa-file-download"></i> Download My Resume (PDF)
+                </a>
             </div>
 
             <div class="contact-form-card">
